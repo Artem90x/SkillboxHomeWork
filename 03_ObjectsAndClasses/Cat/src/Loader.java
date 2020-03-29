@@ -4,7 +4,7 @@ public class Loader {
 
         Cat murka = new Cat();
         {
-            murka.setColor("BLACK");
+            murka.setColor(Color.BLACK);
             System.out.println("Murka color: " + murka.getColor());
             System.out.println("Murka weight: " + murka.getWeight());
             while (!murka.getStatus().equals("Dead")) {
@@ -18,54 +18,57 @@ public class Loader {
 
         Cat barsic = new Cat();
         {
-            barsic.setColor("GRAY");
+            barsic.setColor(Color.GRAY);
             System.out.println("Barsic color: " + barsic.getColor());
             System.out.println("Barsic weight: " + barsic.getWeight());
+            System.out.println("Barsic is alive? " + barsic.isAlive());
             barsic.feed(1000.2);
             System.out.println("Barsic feed and weight: " + barsic.getWeight());
-            System.out.println("Barsic is alive? " + barsic.isAlive());
             System.out.println();
         }
 
         Cat kisa = new Cat();
         {
-            kisa.setColor("WHITE");
+            kisa.setColor(Color.WHITE);
             System.out.println("Kisa color: " + kisa.getColor());
             System.out.println("Kisa weight: " + kisa.getWeight());
+            System.out.println("Kisa is alive? " + kisa.isAlive());
             kisa.feed(3000.25);
             System.out.println("Kisa feed and weight: " + kisa.getWeight());
-            System.out.println("Kisa is alive? " + kisa.isAlive());
             System.out.println();
         }
 
         Cat leopold = new Cat();
         {
+            leopold.setColor(Color.ORANGE);
+            System.out.println("Leopold color: " + leopold.getColor());
             System.out.println("Leopold weight: " + leopold.getWeight());
+            System.out.println("Leopold is alive? " + leopold.isAlive());
             while (!leopold.getStatus().equals("Exploded")) {
                 leopold.feed(3000.1);
             }
             System.out.println("Leopold weight: " + leopold.getWeight());
             System.out.println("Leopold: " + leopold.getStatus());
-            System.out.println("Leopold is alive? " + leopold.isAlive());
             System.out.println();
         }
 
         Cat moly = new Cat();
         {
+            moly.setColor(Color.BROW);
             System.out.println("Moly weight: " + moly.getWeight());
+            System.out.println("Moly is alive? " + moly.isAlive());
             moly.drink(100.2);
             System.out.println("Moly weight and drink: " + moly.getWeight());
-            System.out.println("Moly is alive? " + moly.isAlive());
             System.out.println();
         }
 
         Cat vasya = new Cat();
         {
             System.out.println("Vasya weight: " + vasya.getWeight());
+            System.out.println("Vasya is alive? " + vasya.isAlive());
             vasya.feed(150.0);
             System.out.println("Vasya eaten food: " + vasya.getQuantityFood());
             System.out.println("Vasya weight: " + vasya.getWeight());
-            System.out.println("Vasya is alive? " + vasya.isAlive());
             System.out.println();
         }
 
@@ -85,7 +88,7 @@ public class Loader {
             System.out.println();
         }
 
-        Cat lapa = new Cat(2000.2, "BLACK");
+        Cat lapa = Cat.copy(barsic);
         {
             System.out.println("Lapa color: " + lapa.getColor());
             System.out.println("Lapa weight: " + lapa.getWeight());

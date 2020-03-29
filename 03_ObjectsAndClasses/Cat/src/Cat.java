@@ -1,4 +1,4 @@
-import java.util.function.DoubleBinaryOperator;
+
 
 public class Cat {
 
@@ -9,13 +9,14 @@ public class Cat {
     private double weight;
     private double quantityFood;
     public static int count;
-    private String Color;
+    private Color typeColor;
     private boolean alive;
 
-    public Cat(Double weight, String Color) {
-        this.weight = weight;
-        this.Color = Color;
-        count++;
+    public static Cat copy(Cat cat) {
+        Cat barsic = new Cat();
+        barsic.weight = cat.getWeight();
+        barsic.typeColor = cat.getColor();
+        return barsic;
     }
 
     public Cat() {
@@ -77,12 +78,12 @@ public class Cat {
         }
     }
 
-    public void setColor(String Color) {
-        this.Color = Color;
+    public void setColor(Color typeColor) {
+        this.typeColor = typeColor;
     }
 
-    public String getColor() {
-        return Color;
+    public Color getColor() {
+        return typeColor;
     }
 
     public boolean isAlive() {
@@ -93,6 +94,5 @@ public class Cat {
         } else {
             return alive = true;
         }
-
     }
 }
