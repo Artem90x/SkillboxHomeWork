@@ -4,21 +4,19 @@ public class Main {
     public static void main(String[] args) {
         int box;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("How many boxes do you need to deliver?");
+        System.out.println("Сколько ящиков отправить?");
         box = scanner.nextInt();
 
-        Cargo cargo = new Cargo(box);
-        System.out.println("To deliver the boxes(" + cargo.getBox() + ") you will need: \n" + "Truck: " + cargo.getTruck() + "\nContainer: " + cargo.getContainer());
-        System.out.println("===================================");
-        cargo.result();
+        Loading loading = new Loading(box);
+        loading.result();
     }
 
-    public static class Cargo {
+    public static class Loading {
         private int truck;
         private int container;
         private int box;
 
-        public Cargo(int box) {
+        public Loading(int box) {
             this.box = box;
             if (box != 0) {
                 container = box % 27 == 0 ? box / 27 : box / 27 + 1;
@@ -28,34 +26,22 @@ public class Main {
             }
         }
 
-        public int getTruck() {
-            return truck;
-        }
-
-        public int getContainer() {
-            return container;
-        }
-
-        public int getBox() {
-            return box;
-        }
-
         public void result() {
+            int a = 1;
             int b = 1;
-            int c = 1;
             for (int i = 1; i <= truck; i++) {
                 System.out.println("Truck number: " + i);
-                int j = 0;
-                while (j < 12 && c <= container) {
-                    System.out.println("    Container number: " + c);
-                    int k = 0;
-                    while (k < 27 && b <= box) {
-                        System.out.println("      Box number: " + b);
-                        k++;
-                        b++;
+                int c = 0;
+                while (c < 12 && b <= container) {
+                    System.out.println("    Container number: " + b);
+                    int d = 0;
+                    while (d < 27 && a <= box) {
+                        System.out.println("      Box number: " + a);
+                        d++;
+                        a++;
                     }
-                    j++;
                     c++;
+                    b++;
                     System.out.println();
                 }
             }
