@@ -14,14 +14,12 @@ public class Loader {
         int a = text.indexOf("Вася заработал");
         int b = text.indexOf("руб");
         String cutOffVasya = text.substring(a + 14, b).trim();
-        System.out.println(cutOffVasya);
 
         int c = text.indexOf("Маша - ");
-        int d = text.indexOf("руб");
+        int d = text.lastIndexOf("руб");
         String cutOffMasha = text.substring(c + 6, d).trim();
-        System.out.println(cutOffMasha);
 
-//        int sum = Integer.parseInt(cutOffVasya) + Integer.parseInt(cutOffMasha);
-//        System.out.println(sum);
+        int sum = Integer.parseInt(cutOffVasya) + Integer.parseInt(cutOffMasha);
+        System.out.println("Сумма Васи и Маши: " + sum);
     }
 }
