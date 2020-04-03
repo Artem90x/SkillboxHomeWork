@@ -7,7 +7,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Сколько ящиков отправить?");
         box = scanner.nextInt();
-        
+
         Loading loading = new Loading(box);
         loading.result();
     }
