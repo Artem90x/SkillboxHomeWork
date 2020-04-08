@@ -11,6 +11,9 @@ public class Main {
         System.out.println("Напишите ваше ФИО:");
         String fullName = reader.readLine();
 
+        for (String retval : fullName.split(" ", 3)) {
+            System.out.println(retval); }
+
         int lastIndex = fullName.indexOf(" ");
         int firstIndex = fullName.lastIndexOf(" ");
 
