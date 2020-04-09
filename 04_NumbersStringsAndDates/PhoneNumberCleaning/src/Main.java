@@ -9,6 +9,13 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Укажите ваш номер телефона:");
         String phone = reader.readLine();
-        System.out.println(phone.replaceAll("^((8|\\+7)[\\- ]?)?[\\d\\- ]{7,10}$", ""));
+//        System.out.println(phone.replaceAll("^((8|\\+7)[\\- ]?)?[\\d\\- ]{7,10}$", ""));
+
+        System.out.println(phone
+                .replaceAll("[^\\d]", "")
+                .replaceAll("(\\d)(\\d{10})", "+7$2"));
+
+
+
     }
 }
