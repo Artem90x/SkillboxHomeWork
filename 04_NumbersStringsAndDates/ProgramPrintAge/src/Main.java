@@ -7,7 +7,7 @@ import java.util.Locale;
 public class Main {
 
     public static void main(String[] args) {
-        
+
         DateFormat dateFormat = new SimpleDateFormat(" - dd.MM.yyyy - EEE", Locale.ENGLISH);
         Calendar calendar = Calendar.getInstance();
         calendar.set(1991, Calendar.JANUARY, 18);
