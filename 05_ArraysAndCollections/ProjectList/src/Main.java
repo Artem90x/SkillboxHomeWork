@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Список команд: \n" + "LIST - открыть весь список дел.\n" + "ADD - добавить дело.\n"
-               +"ADD 4 Добавить дело на 4 место\n" + "EDIT - новое название дела.\n"
+                + "ADD 4 Добавить дело на 4 место\n" + "EDIT - новое название дела.\n"
                 + "DELETE - удалить дело." + "\n=======================\n");
         System.out.println("Вызовите команду: ");
 
@@ -17,13 +17,14 @@ public class Main {
             add(4, "Прогуляться");
         }};
 
-
-
         while (true) {
             Scanner scanner = new Scanner(System.in);
             switch (scanner.nextLine()) {
+
                 case "LIST":
-                    System.out.println("Список дел: \n" + todoList);
+                    for (int i = 0; i < todoList.size(); i++) {
+                        System.out.println("Номер идекса: " + i + " " + todoList.get(i));
+                    }
                     break;
 
                 case "ADD":
@@ -33,9 +34,14 @@ public class Main {
                     break;
 
                 case "ADD 4":
-                    System.out.println("Добавить дело на 4 место: ");
-                    todoList.add(3, scanner.nextLine());
-                    System.out.println("Дело добавлено!\n"+ todoList);
+                    System.out.println("Выбрать позицию идекса:");
+                    int positionIndex = Integer.parseInt(scanner.nextLine());
+                    System.out.println("Название дела:");
+                    todoList.add(positionIndex, scanner.nextLine());
+                    System.out.println("Дело добавлено!");
+                    for (int i = 0; i < todoList.size(); i++) {
+                        System.out.println("Номер идекса: " + i + " " + todoList.get(i));
+                    }
                     break;
 
                 case "DELETE":
@@ -45,7 +51,16 @@ public class Main {
                     break;
 
                 case "EDIT":
-                    System.out.println("Выбрать дело: \n" + todoList);
+                    System.out.println("Выбрать индекс дела: \n");
+                    for (int i = 0; i < todoList.size(); i++) {
+                        System.out.println("Номер идекса: " + i + " " + todoList.get(i));
+                    }
+                    int index = Integer.parseInt(scanner.nextLine());
+                    System.out.println("Новое название:");
+                    String task = scanner.nextLine();
+                    todoList.set(index, task);
+                    System.out.println("Список дел: \n" + todoList);
+                    break;
 
                 default:
                     System.out.println("Ошибка! Команда указана неправильно");
