@@ -40,8 +40,14 @@ public class Main {
                 }
                 case "HELP": {
                     System.out.println("Список вызываемых команд:\n" +
-                            "LIST - вызвать список.\n" +
-                            "ADD - добавить контакт.");
+                            "LIST - вызвать список.\n" + "ADD - добавить контакт.\n" +
+                            "SEARCH - поиск контакта.");
+                    break;
+                }
+                case "SEARCH": {
+                    System.out.println("Поиск контакта \n" + "Введите имя:");
+                    String search = scanner.nextLine();
+                    System.out.println(phoneBookLIst.get(search));
                     break;
                 }
                 default: {
