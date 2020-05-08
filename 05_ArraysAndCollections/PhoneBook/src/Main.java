@@ -8,6 +8,8 @@ public class Main {
 
         TreeMap<String, String> phoneBookLIst = new TreeMap<>();
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Меню:\n" + "LIST - вызвать список.\n" + "ADD - добавить контакт.\n" +
+                "SEARCH - поиск контакта.");
         while (true) {
             switch (scanner.nextLine()) {
                 case "LIST": {
@@ -24,10 +26,10 @@ public class Main {
                     String number = parts[1];
 
                     if (name.matches("^[a-zA-Z-А-яА-Я\\s]+$")) { //Проверка имени
+                        System.out.println("Контакт добавлен.");
                         phoneBookLIst.containsKey(name);
                     } else {
                         System.out.println("Имя указано неверно!");
-
                     }
 
                     if (number.matches("-?[\\d]+")) { //Проверка номера телефона
@@ -45,9 +47,19 @@ public class Main {
                     break;
                 }
                 case "SEARCH": {
-                    System.out.println("Поиск контакта \n" + "Введите имя:");
+                    System.out.println("Поиск контакта:");
                     String search = scanner.nextLine();
-                    System.out.println(phoneBookLIst.get(search));
+
+                    if (search.matches("^[a-zA-Z-А-яА-Я\\s]+$")) {
+                        String exists = (phoneBookLIst.containsKey(search)) ?
+                                "найден:" : "не найден:";
+                        System.out.println("Контакт " + exists + " " + phoneBookLIst.get(search) );
+                    } else if (search.matches("-?[\\d]+")) {
+                        String exists = (phoneBookLIst.containsValue(search)) ?
+                                "найден:" : "не найден:";
+                        System.out.println("Объект со значением "
+                                + exists + phoneBookLIst.keySet());
+                    }
                     break;
                 }
                 default: {
