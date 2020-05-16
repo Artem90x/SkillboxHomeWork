@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/03_ObjectsAndClasses/Airport/Airport.iml" filepath="$PROJECT_DIR$/03_ObjectsAndClasses/Airport/Airport.iml" />
       <module fileurl="file://$PROJECT_DIR$/05_ArraysAndCollections/ArrayOfArrays/ArrayOfArrays.iml" filepath="$PROJECT_DIR$/05_ArraysAndCollections/ArrayOfArrays/ArrayOfArrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05_ArraysAndCollections/CarPlateNumbers/CarPlateNumbers.iml" filepath="$PROJECT_DIR$/05_ArraysAndCollections/CarPlateNumbers/CarPlateNumbers.iml" />
       <module fileurl="file://$PROJECT_DIR$/03_ObjectsAndClasses/Cat/Cat.iml" filepath="$PROJECT_DIR$/03_ObjectsAndClasses/Cat/Cat.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/Contaner/Contaner.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/Contaner/Contaner.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/EnglishTextExperiments/EnglishTextExperiments.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/EnglishTextExperiments/EnglishTextExperiments.iml" />

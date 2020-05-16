@@ -6,16 +6,17 @@ public class Main {
         ArrayList<String> list = new ArrayList<>();
         String[] chars = new String[]{"А", "В", "Е", "К", "М", "Н", "О", "Р", "С", "Т", "У", "Х"};
         for (int i = 0; i < chars.length; i++) {
-            for (int j = 0; j < 10; j++) {
-                for (int k = 1; k < 199; k++) {
-                    String currChar = chars[i];
-                    String region = String.valueOf(k);
-                    if (k < 10) {
-                        region = "0" + region;
+            for (int i2 = 0; i2 < chars.length; i2++) {
+                for (int j = 0; j < 10; j++) {
+                    for (int k = 1; k < 199; k++) {
+                        String region = String.valueOf(k);
+                        if (k < 10) {
+                            region = "0" + region;
+                        }
+                        String number = String.format("%s%d%d%d%s%s%s", chars[i],
+                                j, j, j, chars[i], chars[i2], region);
+                        list.add(number);
                     }
-                    String number = String.format("%s%d%d%d%s%s%s", currChar,
-                            j, j, j, currChar, currChar, region);
-                    list.add(number);
                 }
             }
         }
