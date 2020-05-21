@@ -18,16 +18,16 @@ public class Main {
 
         DepositAccount depositTom = new DepositAccount(200000.);
         System.out.println("Депозитарный расчётный счёт");
-        depositTom.cashOutDep(50000.);
+        depositTom.cashOut(50000.);
         System.out.println(depositTom.getAmount());
         depositTom.setLastCashInDate(LocalDate.of(2020,4,18));
-        depositTom.cashOutDep(30000.);
+        depositTom.cashOut(30000.);
         System.out.println("На балансе: " + depositTom.getAmount() +
                 "\n==================================\n");
 
         CardAccount cardTom = new CardAccount(50000.);
         System.out.println("Карточный счёт");
-        cardTom.cashOutCard(30000.);
+        cardTom.cashOut(30000.);
         System.out.println("Баланс карты: "+ cardTom.getAmount());
     }
 }
