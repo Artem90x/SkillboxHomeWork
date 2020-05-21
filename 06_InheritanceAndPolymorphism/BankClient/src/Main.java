@@ -1,12 +1,11 @@
 import Bank.Client;
 import Bank.EntityPerson;
 import Bank.IndividualEntrepreneur;
-import Bank.PhysicalPerson;
 
 public class Main {
     public static void main(String[] args) {
 
-        Client physical = new PhysicalPerson();
+        Client physical = new Client() {};
         physical.addMoney(10000.0);
         physical.cashOut(3500.0);
         System.out.println("Баланс физического лица: " + physical.getBalance());
