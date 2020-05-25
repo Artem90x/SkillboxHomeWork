@@ -4,6 +4,10 @@ public class EntityPerson extends Client {
 
     protected static final double COMMISSION = 0.01;
 
+    public EntityPerson(String name) {
+        super(name);
+    }
+
     @Override
     public void addMoney(Double amount) {
         super.addMoney(amount);

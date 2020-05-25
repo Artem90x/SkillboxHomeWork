@@ -5,6 +5,10 @@ public class IndividualEntrepreneur extends Client {
     protected static double MIN_COMMISSION = 0.005;
     protected static double MAX_COMMISSION = 0.01;
 
+    public IndividualEntrepreneur(String name) {
+        super(name);
+    }
+
     @Override
     public void addMoney(Double amount) {
 
