@@ -6,11 +6,13 @@ import java.util.List;
 
 public class Company {
     private int income;
+    String nameCompany;
     int incomePlane = 5000000;
     private ArrayList<Employee> employees = new ArrayList();
 
-    public Company() {
-        income = 0;
+    public Company(String nameCompany, int income) {
+        this.nameCompany = nameCompany;
+        this.income = income;
     }
 
     int getIncome() {
@@ -36,10 +38,10 @@ public class Company {
         }
     }
 
-    public void fire(int number) {
+    public void fire(int number, Company company) {
         if (number < getEmployeesQuantity() & number >= 0) {
-            income -= employees.get(number).getEarnedMoney();
             employees.remove(number);
+            employees.remove(company);
         }
     }
 

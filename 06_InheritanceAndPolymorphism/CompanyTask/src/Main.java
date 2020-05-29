@@ -5,7 +5,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        Company company = new Company();
+        Company company = new Company("OOO Company", 5000000);
         company.hireAll(staffList("Manager", 80, company));
         company.hireAll(staffList("Operator", 180, company));
         company.hireAll(staffList("TopManager", 10, company));
@@ -19,7 +19,7 @@ public class Main {
 
         int k = company.getEmployeesQuantity();
         for (int i = 0; i <= k / 2 - 1; i++) {
-            company.fire(i);
+            company.fire(i, company);
         }
         System.out.println("\nОбщее количество сотрудников после увольнения: " + company.getEmployeesQuantity());
         System.out.println("15 самых высоких зарплат после увольнения:");
@@ -33,12 +33,12 @@ public class Main {
         switch (employeeType) {
             case "Manager":
                 for (int i = 0; i < staff.size(); i++) {
-                    staff.set(i, new Manager());
+                    staff.set(i, new Manager(company));
                 }
                 break;
             case "Operator":
                 for (int i = 0; i < staff.size(); i++) {
-                    staff.set(i, new Operator());
+                    staff.set(i, new Operator(company));
                 }
                 break;
             case "TopManager":
