@@ -19,7 +19,7 @@ public class Main {
 
         int k = company.getEmployeesQuantity();
         for (int i = 0; i <= k / 2 - 1; i++) {
-            company.fire(i, company);
+            company.fire(i);
         }
         System.out.println("\nОбщее количество сотрудников после увольнения: " + company.getEmployeesQuantity());
         System.out.println("15 самых высоких зарплат после увольнения:");

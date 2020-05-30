@@ -38,10 +38,9 @@ public class Company {
         }
     }
 
-    public void fire(int number, Company company) {
+    public void fire(int number) {
         if (number < getEmployeesQuantity() & number >= 0) {
             employees.remove(number);
-            employees.remove(company);
         }
     }
 
