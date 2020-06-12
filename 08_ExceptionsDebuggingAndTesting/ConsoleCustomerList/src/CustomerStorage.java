@@ -9,22 +9,21 @@ public class CustomerStorage
         storage = new HashMap<>();
     }
 
-    public void addCustomer(String data)
-    {
+    public void addCustomer(String data) throws MyException {
         String[] components = data.split("\\s+");
 
         if (components.length != 4) {
-            throw new IllegalArgumentException ("Wrong Format. Correct format:\n" +
+            throw new MyException("Wrong Format. Correct format:\n" +
                     "\tadd Василий Петров vasily.petrov@gmail.com +79215637722");
         }
 
         if (!emailValid(components[2])) {
-            throw new IllegalArgumentException("Wrong Email Format. Correct format:\n" +
+            throw new MyException("Wrong Email Format. Correct format:\n" +
                     "\tvasily.petrov@gmail.com");
         }
 
         if (!telephoneNumberValid(components[3])) {
-            throw new IllegalArgumentException("Wrong Telephone Number Format. Correct format:\n" +
+            throw new MyException("Wrong Telephone Number Format. Correct format:\n" +
                     "\t+79215637722");
         }
 
