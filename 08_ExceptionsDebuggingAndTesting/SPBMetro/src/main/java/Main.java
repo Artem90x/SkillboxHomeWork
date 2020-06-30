@@ -1,5 +1,9 @@
 import core.Line;
 import core.Station;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Marker;
+import org.apache.logging.log4j.MarkerManager;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -14,29 +18,38 @@ public class Main
 {
     private static String dataFile = "C:/Users/User/IdeaProjects/SPBMetro/src/main/resources/map.json";
     private static Scanner scanner;
+    private static Logger loggerInfo;
+    private static Logger loggerWarn;
+    private static Logger loggerError;
+    private static Marker CORRECT_STATION = MarkerManager.getMarker("INPUT_CORRECT");
+    private static Marker WRONG_STATION = MarkerManager.getMarker("WRONG_INPUT");
 
     private static StationIndex stationIndex;
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         RouteCalculator calculator = getRouteCalculator();
+        loggerInfo = LogManager.getLogger("InfoLog");
+        loggerWarn = LogManager.getLogger("WarnLog");
+        loggerError = LogManager.getLogger("ErrorLog");
 
         System.out.println("Программа расчёта маршрутов метрополитена Санкт-Петербурга\n");
         scanner = new Scanner(System.in);
-        for(;;)
-        {
-            Station from = takeStation("Введите станцию отправления:");
-            Station to = takeStation("Введите станцию назначения:");
+        try {
+            for (; ; ) {
+                Station from = takeStation("Введите станцию отправления:");
+                Station to = takeStation("Введите станцию назначения:");
 
-            List<Station> route = calculator.getShortestRoute(from, to);
-            System.out.println("Маршрут:");
-            printRoute(route);
+                List<Station> route = calculator.getShortestRoute(from, to);
+                System.out.println("Маршрут:");
+                printRoute(route);
 
-            System.out.println("Длительность: " +
-                RouteCalculator.calculateDuration(route) + " минут");
+                System.out.println("Длительность: " +
+                        RouteCalculator.calculateDuration(route) + " минут");
+            }
+        } catch (Exception ex) {
+            loggerError.error(ex.getMessage(), ex);
         }
     }
-
     private static RouteCalculator getRouteCalculator()
     {
         createStationIndex();
@@ -71,8 +84,10 @@ public class Main
             String line = scanner.nextLine().trim();
             Station station = stationIndex.getStation(line);
             if(station != null) {
+                loggerInfo.info(CORRECT_STATION, station.getName());
                 return station;
             }
+            loggerWarn.warn(WRONG_STATION,"Station not found " + line);
             System.out.println("Станция не найдена :(");
         }
     }
