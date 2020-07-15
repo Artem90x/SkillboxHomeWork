@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/09_FilesAndNetwork/09_FilesAndNetwork.iml" filepath="$PROJECT_DIR$/09_FilesAndNetwork/09_FilesAndNetwork.iml" />
       <module fileurl="file://$PROJECT_DIR$/03_ObjectsAndClasses/Airport/Airport.iml" filepath="$PROJECT_DIR$/03_ObjectsAndClasses/Airport/Airport.iml" />
       <module fileurl="file://$PROJECT_DIR$/05_ArraysAndCollections/ArrayOfArrays/ArrayOfArrays.iml" filepath="$PROJECT_DIR$/05_ArraysAndCollections/ArrayOfArrays/ArrayOfArrays.iml" />
       <module fileurl="file://$PROJECT_DIR$/06_InheritanceAndPolymorphism/BankClient/BankClient.iml" filepath="$PROJECT_DIR$/06_InheritanceAndPolymorphism/BankClient/BankClient.iml" />
@@ -19,6 +20,8 @@
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/LastnameProg/LastnameProg.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/LastnameProg/LastnameProg.iml" />
       <module fileurl="file://$PROJECT_DIR$/05_ArraysAndCollections/ListCommandEmail/ListCommandEmail.iml" filepath="$PROJECT_DIR$/05_ArraysAndCollections/ListCommandEmail/ListCommandEmail.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/NewPoject/NewPoject.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/NewPoject/NewPoject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09_FilesAndNetwork/ParseCSV/ParseCSV.iml" filepath="$PROJECT_DIR$/09_FilesAndNetwork/ParseCSV/ParseCSV.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09_FilesAndNetwork/ParserCSV/ParserCSV.iml" filepath="$PROJECT_DIR$/09_FilesAndNetwork/ParserCSV/ParserCSV.iml" />
       <module fileurl="file://$PROJECT_DIR$/05_ArraysAndCollections/PhoneBook/PhoneBook.iml" filepath="$PROJECT_DIR$/05_ArraysAndCollections/PhoneBook/PhoneBook.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/PhoneNumberCleaning/PhoneNumberCleaning.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/PhoneNumberCleaning/PhoneNumberCleaning.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/ProgramPrintAge/ProgramPrintAge.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/ProgramPrintAge/ProgramPrintAge.iml" />
@@ -31,6 +34,7 @@
       <module fileurl="file://$PROJECT_DIR$/05_ArraysAndCollections/TemperatureArray/TemperatureArray.iml" filepath="$PROJECT_DIR$/05_ArraysAndCollections/TemperatureArray/TemperatureArray.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Test/Test.iml" filepath="$PROJECT_DIR$/../Test/Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java_basics.iml" filepath="$PROJECT_DIR$/.idea/java_basics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09_FilesAndNetwork/ParseCSV/untitled/untitled.iml" filepath="$PROJECT_DIR$/09_FilesAndNetwork/ParseCSV/untitled/untitled.iml" />
     </modules>
   </component>
 </project>
