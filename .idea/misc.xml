@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/09_FilesAndNetwork/ParserImage/pom.xml" />
         <option value="$PROJECT_DIR$/09_FilesAndNetwork/ParserHTML/pom.xml" />
         <option value="$PROJECT_DIR$/10_SQLAndHibernate/JDBCExperiments/pom.xml" />
+        <option value="$PROJECT_DIR$/10_SQLAndHibernate/JDBCHibernateExperiments/pom.xml" />
       </list>
     </option>
   </component>
