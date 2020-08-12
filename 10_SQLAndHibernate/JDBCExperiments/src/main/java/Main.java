@@ -9,14 +9,15 @@ public class Main {
             "JDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String USER = "root";
     private static final String PASSWORD = "1321";
+    private static final String sqlQuery = "SELECT course_name, COUNT(month('31.01.2018'))/12 " +
+            "AS 'avg subscription per month' FROM purchaselist GROUP BY course_name";
 
     public static void main(String[] args) {
 
         try {
             Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT course_name, COUNT(month('31.01.2018'))/12 " +
-                    "AS 'avg subscription per month' FROM purchaselist GROUP BY course_name");
+            ResultSet resultSet = statement.executeQuery(sqlQuery);
 
             while (resultSet.next()) {
                 System.out.println(resultSet.getString("course_name") + "\t- " +
