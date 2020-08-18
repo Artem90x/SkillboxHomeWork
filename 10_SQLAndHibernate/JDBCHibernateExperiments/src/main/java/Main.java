@@ -9,7 +9,8 @@ public class Main {
             connect.init();
             Session session = connect.getSession();
             Course course = session.get(Course.class, 3);
-            System.out.println(course.getName() + "\tКоличество студентов: "+ course.getStudentsCount() + course.getTeacher().getName());
+            System.out.println(course.getName() + "\tКоличество студентов: "+ course.getStudentsCount() +
+                    "\tПреподаватель: " + course.getTeacher().getName());
             connect.sessionFactory.close();
 
         } catch (Exception ex) {
