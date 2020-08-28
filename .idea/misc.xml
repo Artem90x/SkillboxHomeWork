@@ -11,6 +11,9 @@
         <option value="$PROJECT_DIR$/09_FilesAndNetwork/ParserHTML/pom.xml" />
         <option value="$PROJECT_DIR$/10_SQLAndHibernate/JDBCExperiments/pom.xml" />
         <option value="$PROJECT_DIR$/10_SQLAndHibernate/JDBCHibernateExperiments/pom.xml" />
+        <option value="$PROJECT_DIR$/11_Multithreading/ImageResizer/pom.xml" />
+        <option value="$PROJECT_DIR$/11_Multithreading/Deadlock/pom.xml" />
+        <option value="$PROJECT_DIR$/11_Multithreading/Transactions/pom.xml" />
       </list>
     </option>
   </component>

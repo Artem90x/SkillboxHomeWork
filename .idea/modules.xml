@@ -13,8 +13,10 @@
       <module fileurl="file://$PROJECT_DIR$/08_ExceptionsDebuggingAndTesting/ConsoleCustomerList/ConsoleCustomerList.iml" filepath="$PROJECT_DIR$/08_ExceptionsDebuggingAndTesting/ConsoleCustomerList/ConsoleCustomerList.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/Contaner/Contaner.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/Contaner/Contaner.iml" />
       <module fileurl="file://$PROJECT_DIR$/09_FilesAndNetwork/CopyFolder/CopyFolder.iml" filepath="$PROJECT_DIR$/09_FilesAndNetwork/CopyFolder/CopyFolder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/11_Multithreading/Deadlock/Deadlock.iml" filepath="$PROJECT_DIR$/11_Multithreading/Deadlock/Deadlock.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/EnglishTextExperiments/EnglishTextExperiments.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/EnglishTextExperiments/EnglishTextExperiments.iml" />
       <module fileurl="file://$PROJECT_DIR$/09_FilesAndNetwork/FolderSize/FolderSize.iml" filepath="$PROJECT_DIR$/09_FilesAndNetwork/FolderSize/FolderSize.iml" />
+      <module fileurl="file://$PROJECT_DIR$/11_Multithreading/ImageResizer/ImageResizer.iml" filepath="$PROJECT_DIR$/11_Multithreading/ImageResizer/ImageResizer.iml" />
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/IntegerExperiments/IntegerExperiments.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/IntegerExperiments/IntegerExperiments.iml" />
       <module fileurl="file://$PROJECT_DIR$/10_SQLAndHibernate/JDBCExperiments/JDBCExperiments.iml" filepath="$PROJECT_DIR$/10_SQLAndHibernate/JDBCExperiments/JDBCExperiments.iml" />
       <module fileurl="file://$PROJECT_DIR$/10_SQLAndHibernate/JDBCHibernateExperiments/JDBCHibernateExperiments.iml" filepath="$PROJECT_DIR$/10_SQLAndHibernate/JDBCHibernateExperiments/JDBCHibernateExperiments.iml" />
@@ -37,6 +39,7 @@
       <module fileurl="file://$PROJECT_DIR$/04_NumbersStringsAndDates/StringExperiments/StringExperiments.iml" filepath="$PROJECT_DIR$/04_NumbersStringsAndDates/StringExperiments/StringExperiments.iml" />
       <module fileurl="file://$PROJECT_DIR$/05_ArraysAndCollections/TemperatureArray/TemperatureArray.iml" filepath="$PROJECT_DIR$/05_ArraysAndCollections/TemperatureArray/TemperatureArray.iml" />
       <module fileurl="file://$PROJECT_DIR$/../Test/Test.iml" filepath="$PROJECT_DIR$/../Test/Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/11_Multithreading/Transactions/Transactions.iml" filepath="$PROJECT_DIR$/11_Multithreading/Transactions/Transactions.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java_basics.iml" filepath="$PROJECT_DIR$/.idea/java_basics.iml" />
       <module fileurl="file://$PROJECT_DIR$/09_FilesAndNetwork/ParseCSV/untitled/untitled.iml" filepath="$PROJECT_DIR$/09_FilesAndNetwork/ParseCSV/untitled/untitled.iml" />
     </modules>
