@@ -12,15 +12,15 @@ public class Main {
             connect.init();
             Session session = connect.getSession();
 
-            List<Purchase> purchase = session.createQuery("FROM PurchaseList", Purchase.class).getResultList();
+            List<Purchase> purchase = session.createQuery("FROM Purchase", Purchase.class).getResultList();
             Transaction transaction = session.beginTransaction();
 
-            purchase.forEach(purchaseList -> {
+            for (Purchase purchaseList : purchase) {
                 LinkedPurchaseList linkedPurchaseList = new LinkedPurchaseList();
-                Student student = session.createQuery("FROM Student WHERE name = \"" +
-                        purchaseList.getStudentName() + "\"", Student.class).getSingleResult();
-                Course course = session.createQuery("FROM Course WHERE name = \"" +
-                        purchaseList.getCourseName() + "\"", Course.class).getSingleResult();
+                Student student = session.createQuery("FROM Student WHERE name = \'" +
+                        purchaseList.getStudentName() + "\'", Student.class).getSingleResult();
+                Course course = session.createQuery("FROM Course WHERE name = \'" +
+                        purchaseList.getCourseName() + "\'", Course.class).getSingleResult();
                 LinkedPurchaseList.Id id = new LinkedPurchaseList.Id(student.getId(), course.getId());
                 linkedPurchaseList.setId(id);
                 linkedPurchaseList.setStudentName(student.getName());
@@ -28,7 +28,8 @@ public class Main {
                 linkedPurchaseList.setPrice(purchaseList.getPrice());
                 linkedPurchaseList.setSubscriptionDate(purchaseList.getSubscriptionDate());
                 session.save(linkedPurchaseList);
-            });
+                session.evict(linkedPurchaseList);
+            }
             transaction.commit();
             connect.sessionFactory.close();
 
