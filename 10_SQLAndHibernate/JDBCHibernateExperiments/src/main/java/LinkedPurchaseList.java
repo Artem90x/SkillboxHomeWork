@@ -41,7 +41,10 @@ public class LinkedPurchaseList implements Serializable {
     @Embeddable
     public static class Id implements Serializable {
 
-        public Id(Student studentId, Course courseId) {}
+        public Id(Student studentId, Course courseId) {
+            this.studentId = studentId;
+            this.courseId = courseId;
+        }
 
         @ManyToOne(cascade = CascadeType.ALL)
         @JoinColumn(name = "student_id", insertable = false, updatable = false)
