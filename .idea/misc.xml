@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/11_Multithreading/ImageResizer/pom.xml" />
         <option value="$PROJECT_DIR$/11_Multithreading/Deadlock/pom.xml" />
         <option value="$PROJECT_DIR$/11_Multithreading/Transactions/pom.xml" />
+        <option value="$PROJECT_DIR$/11_Multithreading/ForJoinPool/pom.xml" />
       </list>
     </option>
   </component>
