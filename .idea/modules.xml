@@ -42,6 +42,7 @@
       <module fileurl="file://$PROJECT_DIR$/../Test/Test.iml" filepath="$PROJECT_DIR$/../Test/Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/12_SpringBootWebDevelopment/ToDoList/ToDoList.iml" filepath="$PROJECT_DIR$/12_SpringBootWebDevelopment/ToDoList/ToDoList.iml" />
       <module fileurl="file://$PROJECT_DIR$/11_Multithreading/Transactions/Transactions.iml" filepath="$PROJECT_DIR$/11_Multithreading/Transactions/Transactions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/12_SpringBootWebDevelopment/BookLibrary/bookLibrary.iml" filepath="$PROJECT_DIR$/12_SpringBootWebDevelopment/BookLibrary/bookLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java_basics.iml" filepath="$PROJECT_DIR$/.idea/java_basics.iml" />
       <module fileurl="file://$PROJECT_DIR$/09_FilesAndNetwork/ParseCSV/untitled/untitled.iml" filepath="$PROJECT_DIR$/09_FilesAndNetwork/ParseCSV/untitled/untitled.iml" />
     </modules>
