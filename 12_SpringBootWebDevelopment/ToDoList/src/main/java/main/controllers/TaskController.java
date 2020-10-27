@@ -2,6 +2,8 @@ package main.controllers;
 
 import main.Storage;
 import main.model.Task;
+import main.model.TaskRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +13,14 @@ import java.util.List;
 @RestController
 public class TaskController {
 
+    @Autowired
+    private TaskRepository taskRepository;
+
     @PostMapping("/tasks/")
     public int addTask(Task task) {
-        return Storage.addTask(task);
+
+        Task newTask = taskRepository.save(task);
+        return newTask.getId();
     }
 
     @DeleteMapping("/tasks/{id}")
