@@ -1,8 +1,7 @@
 package main.controllers;
 
-import main.Storage;
 import main.model.Task;
-import main.model.TaskRepository;
+import main.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,54 +12,56 @@ import java.util.List;
 @RestController
 public class TaskController {
 
+    private final TaskService taskService;
+
     @Autowired
-    private TaskRepository taskRepository;
+    public TaskController(TaskService taskService) {
+        this.taskService = taskService;
+    }
 
     @PostMapping("/tasks/")
     public int addTask(Task task) {
 
-        Task newTask = taskRepository.save(task);
+        Task newTask = taskService.save(task);
         return newTask.getId();
     }
 
     @DeleteMapping("/tasks/{id}")
-    public ResponseEntity deleteTask(@PathVariable int id)
-    {
-        Task task = Storage.getTask(id);
-        if (task == null)
-        {
+    public ResponseEntity deleteTask(@PathVariable int id) {
+
+        Task task = taskService.getById(id);
+        if (task == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
-        Storage.deleteTask(id);
+        taskService.deleteById(id);
         return new ResponseEntity("Задача удалена id:" + id, HttpStatus.OK);
     }
 
     @PutMapping ("/tasks/{id}")
-    public ResponseEntity updateTask(@PathVariable int id)
-    {
-        Task task = Storage.getTask(id);
-        if (task == null)
-        {
+    public ResponseEntity updateTask(@PathVariable int id) {
+
+        Task task = taskService.getById(id);
+        if (task == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
-        Storage.putTask(task);
+        taskService.save(task);
         return new ResponseEntity("Задача обновлена id:" + id, HttpStatus.OK);
     }
 
     @GetMapping("/tasks/")
     public List<Task> getTasks() {
-        return Storage.getAllTasks();
+        return taskService.getAll();
     }
 
     @DeleteMapping("/tasks/")
     public ResponseEntity deleteAllTasks() {
-        Storage.deleteAllTask();
+        taskService.deleteAll();
         return new ResponseEntity("Весь список задач удалён", HttpStatus.OK);
     }
 
     @GetMapping("/tasks/{id}")
     public ResponseEntity getTask(@PathVariable int id) {
-        Task task = Storage.getTask(id);
+        Task task = taskService.getById(id);
         if(task == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
         }
