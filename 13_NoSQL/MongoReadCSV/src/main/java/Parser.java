@@ -13,20 +13,25 @@ public class Parser {
 
     public void parserCSV() {
 
+
         List<Document> students = new ArrayList();
+
+        MongoControl control = new MongoControl();
+        control.writeData(students);
+
         CSVReader reader = null;
 
         try {
             reader = new CSVReader(new FileReader(CSV_FILE));
 
             String[] line;
-            while((line = reader.readNext()) != null) {
+            while ((line = reader.readNext()) != null) {
                 List<String> list = new ArrayList();
                 String[] a = line[2].split(",");
                 String[] b = a;
                 int c = a.length;
 
-                for(int i = 0; i < c; ++i) {
+                for (int i = 0; i < c; ++i) {
                     String s = b[i];
                     list.add(s);
                 }

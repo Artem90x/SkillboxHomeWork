@@ -6,5 +6,8 @@ public class Main {
 
         MongoConfig mongoConfig = new MongoConfig();
         mongoConfig.init();
+
+        Parser parser = new Parser();
+        parser.parserCSV();
     }
 }

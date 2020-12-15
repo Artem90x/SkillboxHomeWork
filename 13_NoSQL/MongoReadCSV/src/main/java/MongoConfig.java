@@ -8,15 +8,12 @@ import org.bson.Document;
 
 public class MongoConfig {
 
-    public void init() {
-
-        Parser parser = new Parser();
+    public MongoCollection<Document> init() {
         MongoClient mongoClient = new MongoClient("127.0.0.1", 27017);
 
         MongoDatabase mongoDatabase = mongoClient.getDatabase("local");
         MongoCollection<Document> collection = mongoDatabase.getCollection("students");
         collection.drop();
-
-        parser.parserCSV();
+        return collection;
     }
 }
