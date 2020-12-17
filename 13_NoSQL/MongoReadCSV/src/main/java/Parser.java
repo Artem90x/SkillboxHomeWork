@@ -1,3 +1,4 @@
+import com.mongodb.client.MongoCollection;
 import com.opencsv.CSVReader;
 import org.bson.Document;
 
@@ -10,15 +11,15 @@ public class Parser {
 
     private static String CSV_FILE = "C:\\Users\\User\\IdeaProjects\\java_basics\\13_NoSQL" +
             "\\MongoReadCSV\\src\\main\\resources\\mongo.csv";
+    private MongoCollection<Document> collection;
 
-    public void parserCSV() {
+    public Parser(MongoCollection<Document> collection) {
+        this.collection = collection;
+    }
 
-
+    public void parseCSV() {
         List<Document> students = new ArrayList();
-
-        MongoControl control = new MongoControl();
-        control.writeData(students);
-
+        MongoControl control = new MongoControl(collection);
         CSVReader reader = null;
 
         try {
@@ -42,5 +43,6 @@ public class Parser {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        control.writeData(students);
     }
 }
