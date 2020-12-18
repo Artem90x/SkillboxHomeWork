@@ -1,45 +1,20 @@
-import java.io.FileOutputStream;
 
-public class Loader
-{
-    public static void main(String[] args) throws Exception
-    {
-        long start = System.currentTimeMillis();
+public class Loader {
+    private static Generator THREAD_ONE = new Generator(199, "res/numbers1.txt");
+    private static Generator THREAD_TWO = new Generator(777, "res/numbers2.txt");
 
-        FileOutputStream writer = new FileOutputStream("res/numbers.txt");
+    public static void main(String[] args) {
+        try {
+            long start = System.currentTimeMillis();
+            THREAD_ONE.start();
+            THREAD_TWO.start();
 
-        char letters[] = {'У', 'К', 'Е', 'Н', 'Х', 'В', 'А', 'Р', 'О', 'С', 'М', 'Т'};
-        for(int number = 1; number < 1000; number++)
-        {
-            int regionCode = 199;
-            for (char firstLetter : letters)
-            {
-                for (char secondLetter : letters)
-                {
-                    for (char thirdLetter : letters)
-                    {
-                        String carNumber = firstLetter + padNumber(number, 3) +
-                            secondLetter + thirdLetter + padNumber(regionCode, 2);
-                        writer.write(carNumber.getBytes());
-                        writer.write('\n');
-                    }
-                }
-            }
+            THREAD_ONE.join();
+            THREAD_TWO.join();
+            System.out.println((System.currentTimeMillis() - start) + " ms");
+
+        }catch (Exception e) {
+            e.printStackTrace();
         }
-
-        writer.flush();
-        writer.close();
-
-        System.out.println((System.currentTimeMillis() - start) + " ms");
-    }
-
-    private static String padNumber(int number, int numberLength)
-    {
-        String numberStr = Integer.toString(number);
-        int padSize = numberLength - numberStr.length();
-        for(int i = 0; i < padSize; i++) {
-            numberStr = '0' + numberStr;
-        }
-        return numberStr;
     }
 }
