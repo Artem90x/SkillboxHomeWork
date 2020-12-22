@@ -5,6 +5,8 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,13 +20,22 @@ public class Loader
     private static HashMap<Integer, WorkTime> voteStationWorkTimes = new HashMap<>();
     private static HashMap<Voter, Integer> voterCounts = new HashMap<>();
 
-    public static void main(String[] args) throws Exception
-    {
-        String fileName = "res/data-1M.xml";
+    public static void main(String[] args) throws Exception {
+        String fileName = "res/data-1572M.xml";
 
-        parseFile(fileName);
+        SAXParserFactory factory = SAXParserFactory.newInstance();
+        SAXParser parser = factory.newSAXParser();
+        XMLHandler handler = new XMLHandler();
+        parser.parse(new File(fileName), handler);
 
         //Printing results
+        long usageSAX = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        handler.printDuplicatedVoters();
+        usageSAX = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) - usageSAX;
+        System.out.println(usageSAX + " - SAXParser");
+
+        parseFile(fileName);
+        long usageDOM = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
         System.out.println("Voting station work times: ");
         for(Integer votingStation : voteStationWorkTimes.keySet())
         {
@@ -40,6 +51,8 @@ public class Loader
                 System.out.println("\t" + voter + " - " + count);
             }
         }
+        usageDOM = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) - usageDOM;
+        System.out.println(usageDOM + " - DOMParser");
     }
 
     private static void parseFile(String fileName) throws Exception

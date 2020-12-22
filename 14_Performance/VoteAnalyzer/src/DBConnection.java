@@ -30,24 +30,32 @@ public class DBConnection
         return connection;
     }
 
-    public static void countVoter(String name, String birthDay) throws SQLException
-    {
-        birthDay = birthDay.replace('.', '-');
-        String sql = "SELECT id FROM voter_count WHERE birthDate='" + birthDay + "' AND name='" + name + "'";
-        ResultSet rs = DBConnection.getConnection().createStatement().executeQuery(sql);
-        if(!rs.next())
-        {
-            DBConnection.getConnection().createStatement()
-                    .execute("INSERT INTO voter_count(name, birthDate, `count`) VALUES('" +
-                            name + "', '" + birthDay + "', 1)");
-        }
-        else {
-            Integer id = rs.getInt("id");
-            DBConnection.getConnection().createStatement()
-                    .execute("UPDATE voter_count SET `count`=`count`+1 WHERE id=" + id);
-        }
-        rs.close();
+
+    public static void executeMultiInsert(StringBuilder builder) throws SQLException {
+
+        DBConnection.getConnection().createStatement()
+                .execute("INSERT INTO voter_count(name, birthDate) VALUES" +
+                        builder.toString());
     }
+//
+//    public static void countVoter(String name, String birthDay) throws SQLException
+//    {
+//        birthDay = birthDay.replace('.', '-');
+//        String sql = "SELECT id FROM voter_count WHERE birthDate='" + birthDay + "' AND name='" + name + "'";
+//        ResultSet rs = DBConnection.getConnection().createStatement().executeQuery(sql);
+//        if(!rs.next())
+//        {
+//            DBConnection.getConnection().createStatement()
+//                    .execute("INSERT INTO voter_count(name, birthDate, `count`) VALUES('" +
+//                            name + "', '" + birthDay + "', 1)");
+//        }
+//        else {
+//            Integer id = rs.getInt("id");
+//            DBConnection.getConnection().createStatement()
+//                    .execute("UPDATE voter_count SET `count`=`count`+1 WHERE id=" + id);
+//        }
+//        rs.close();
+//    }
 
     public static void printVoterCounts() throws SQLException
     {
