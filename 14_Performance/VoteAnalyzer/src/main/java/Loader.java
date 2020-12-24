@@ -14,45 +14,28 @@ import java.util.HashMap;
 
 public class Loader
 {
-    private static SimpleDateFormat birthDayFormat = new SimpleDateFormat("yyyy.MM.dd");
-    private static SimpleDateFormat visitDateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+    private static final SimpleDateFormat birthDayFormat = new SimpleDateFormat("yyyy.MM.dd");
+    private static final SimpleDateFormat visitDateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
 
-    private static HashMap<Integer, WorkTime> voteStationWorkTimes = new HashMap<>();
-    private static HashMap<Voter, Integer> voterCounts = new HashMap<>();
+    private static final HashMap<Integer, WorkTime> voteStationWorkTimes = new HashMap<>();
+    private static final HashMap<Voter, Integer> voterCounts = new HashMap<>();
 
     public static void main(String[] args) throws Exception {
-        String fileName = "res/data-1572M.xml";
+        String fileName = "res/data-18M.xml";
+        long start = System.currentTimeMillis();
+
 
         SAXParserFactory factory = SAXParserFactory.newInstance();
         SAXParser parser = factory.newSAXParser();
         XMLHandler handler = new XMLHandler();
         parser.parse(new File(fileName), handler);
 
-        //Printing results
-        long usageSAX = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        handler.printDuplicatedVoters();
-        usageSAX = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) - usageSAX;
-        System.out.println(usageSAX + " - SAXParser");
+        System.out.println(System.currentTimeMillis() - start + " - Record to DB");
 
-        parseFile(fileName);
-        long usageDOM = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-        System.out.println("Voting station work times: ");
-        for(Integer votingStation : voteStationWorkTimes.keySet())
-        {
-            WorkTime workTime = voteStationWorkTimes.get(votingStation);
-            System.out.println("\t" + votingStation + " - " + workTime);
-        }
+        long inception = System.currentTimeMillis();
+        DBConnection.printVoterCounts();
+        System.out.println(System.currentTimeMillis() - inception + " - Request from DB");
 
-        System.out.println("Duplicated voters: ");
-        for(Voter voter : voterCounts.keySet())
-        {
-            Integer count = voterCounts.get(voter);
-            if(count > 1) {
-                System.out.println("\t" + voter + " - " + count);
-            }
-        }
-        usageDOM = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) - usageDOM;
-        System.out.println(usageDOM + " - DOMParser");
     }
 
     private static void parseFile(String fileName) throws Exception
