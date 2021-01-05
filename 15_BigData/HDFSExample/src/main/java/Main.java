@@ -1,53 +1,21 @@
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.Path;
-
-import java.io.BufferedWriter;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.URI;
-
 public class Main
 {
-    private static String symbols = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    private static String text = "Пробный текст";
+    private final static String HADOOP_CONNECTION = "hdfs://d93e5a349193:8020";
 
-    public static void main(String[] args) throws Exception
-    {
-        Configuration configuration = new Configuration();
-        configuration.set("dfs.client.use.datanode.hostname", "true");
-        System.setProperty("HADOOP_USER_NAME", "root");
+    public static void main(String[] args) throws Exception {
 
-        FileSystem hdfs = FileSystem.get(
-            new URI("hdfs://HOST_NAME:8020"), configuration
-        );
-        Path file = new Path("hdfs://HOST_NAME:8020/test/file.txt");
+        String pathDirectory  = "hdfs://d93e5a349193:8020/test";
+        String path  = "hdfs://d93e5a349193:8020/test/myFile.txt";
 
-        if (hdfs.exists(file)) {
-            hdfs.delete(file, true);
-        }
+        FileAccess fileAccess = new FileAccess(HADOOP_CONNECTION);
+        fileAccess.create(path);
+        fileAccess.append(path, text);
+        System.out.println(fileAccess.read(path));
+        fileAccess.delete(path);
 
-        OutputStream os = hdfs.create(file);
-        BufferedWriter br = new BufferedWriter(
-            new OutputStreamWriter(os, "UTF-8")
-        );
-
-        for(int i = 0; i < 10_000_000; i++) {
-            br.write(getRandomWord() + " ");
-        }
-
-        br.flush();
-        br.close();
-        hdfs.close();
-    }
-
-    private static String getRandomWord()
-    {
-        StringBuilder builder = new StringBuilder();
-        int length = 2 + (int) Math.round(10 * Math.random());
-        int symbolsCount = symbols.length();
-        for(int i = 0; i < length; i++) {
-            builder.append(symbols.charAt((int) (symbolsCount * Math.random())));
-        }
-        return builder.toString();
+        System.out.println(fileAccess.isDirectory(pathDirectory));
+        System.out.println(fileAccess.list(pathDirectory));
+        fileAccess.close();
     }
 }
