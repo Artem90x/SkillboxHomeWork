@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        if (args.length < 1) {
+        if (args.length != 2) {
             System.err.println("Usage: JavaWordCount <file> <out_file>");
             System.exit(1);
         }
