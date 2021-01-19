@@ -1,4 +1,4 @@
-package single_linked_list;
+package main.java.single_linked_list;
 
 public class ListItem
 {
